@@ -1,15 +1,16 @@
 package main
 
 import (
-	"fmt"
+	baseCmd "lcgen/internal/base"
+	"lcgen/internal/errorMsg"
+	gencmd "lcgen/internal/gen"
+	"lcgen/internal/utils"
 	"os"
-
-	"github.com/fatih/color"
 )
 
 func main() {
     args := os.Args[1:]
-	key := getKey(args)
+	key := utils.GetKey(args)
 
 	// debug
 	// fmt.Println("key:", key)
@@ -17,39 +18,17 @@ func main() {
 
 	switch key {
 	case "":
-		color.Yellow("leetcode exercise generator\n")
-		fmt.Println("usage: lcgen [-v | --version]\n")
-		fmt.Println("These are the list of available commands:\n")
-		fmt.Println("\tinit\t\tinitialise a leetcode folder for tracking")
-		fmt.Println("\tsearch\t\tsearch for your leetcode problem")
-		fmt.Println("\tgen\t\tgenerate a leetcode problem")
-		fmt.Println("")
+		baseCmd.About()
 	case "init":
-		color.Yellow("This does nothing at the moment.")
+		errorMsg.NotImplemented()
 		// function here
 	case "search":
-		color.Yellow("This does nothing at the moment.")
+		errorMsg.NotImplemented()
 		// function here
 	case "gen":
-		color.Yellow("generating...")
-		// function here
+		gencmd.Generate(args)
 	default:
-		color.Red("command not found.")
+		errorMsg.NotFoundCmd()
 	}
 
-}
-
-func getKey(args []string) string {
-	// check if args is empty
-	if len(args) == 0 {
-		return ""
-	}
-
-	// check if the first arg is a flag
-	char := string([]rune(args[0])[0])	
-	if char == "-" {
-		return ""
-	}
-
-	return args[0]
 }
