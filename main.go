@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-    args := os.Args[1:]
+	args := os.Args[1:]
 	key := utils.GetKey(args)
 
 	// debug
