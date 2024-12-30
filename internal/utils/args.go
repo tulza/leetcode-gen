@@ -14,3 +14,14 @@ func GetKey(args []string) string {
 
 	return args[0]
 }
+
+func IsFlag(arg string) string {
+
+	// check if the arg is a flag
+	char := string([]rune(arg)[0])
+	if char == "-" {
+		return arg
+	}
+
+	return ""
+}

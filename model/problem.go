@@ -2,6 +2,7 @@ package model
 
 type Problem struct {
 	Link               string `json:"link"`
+	QuestionLink       string `json:"questionLink"`
 	QuestionId         string `json:"questionId"`
 	QuestionFrontendId string `json:"questionFrontendId"`
 	QuestionTitle      string `json:"questionTitle"`

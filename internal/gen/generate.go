@@ -28,8 +28,12 @@ func generateFile(problem models.Problem) (string, error) {
     return fileName, nil
 }
 
-
 func generateContent(problem models.Problem) []byte {
+
+	problemLink := problem.Link
+	if problemLink == "" {
+		problemLink = problem.QuestionLink
+	}
 
 	var topics []string
 	for _, topic := range problem.Topics {
@@ -41,5 +45,5 @@ func generateContent(problem models.Problem) []byte {
 #problem: %s
 #topics: %s
 
-`, problem.Link, strings.Join(topics, ", ")))
+`, problemLink, strings.Join(topics, ", ")))
 }

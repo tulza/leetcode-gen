@@ -61,7 +61,7 @@ lcgen
 lcgen [-v | --version]
 lcgen init
 lcgen search [-d | --diff] [-n | --name] [-t | --topic]
-lcgen gen [URL]
+lcgen gen [-n | --name] [-d | -daily] [URL]
 ```
 
 ### How does this work?
